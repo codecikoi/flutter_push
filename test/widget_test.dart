@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_push/main.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-
 void main() {
   group('l01h01', () {
     testWidgets('Scaffold have right background color', (WidgetTester tester) async {
@@ -27,7 +26,7 @@ void main() {
     testWidgets('Centered box has right background color', (WidgetTester tester) async {
       await tester.pumpWidget(MyApp());
       final List<Stack> stackWidgets =
-      tester.widgetList<Stack>(find.byWidgetPredicate((widget) => widget is Stack)).toList();
+          tester.widgetList<Stack>(find.byWidgetPredicate((widget) => widget is Stack)).toList();
       final Stack? stackWithThreeWidgets = stackWidgets.firstWhere((stack) => stack.children.length == 3);
       expect(stackWithThreeWidgets, isNotNull);
       final Widget? centeredWidget = stackWithThreeWidgets!.children
@@ -55,7 +54,7 @@ void main() {
       const TextStyle correctStyle = const TextStyle(fontSize: 38, fontWeight: FontWeight.w900, color: Colors.white);
       await tester.pumpWidget(MyApp());
       final Text? text =
-      tester.firstWidget(find.byWidgetPredicate((widget) => widget is Text && widget.data == "START"));
+          tester.firstWidget(find.byWidgetPredicate((widget) => widget is Text && widget.data == "START"));
       expect(text, isNotNull);
       expect(text!.style, correctStyle);
     });
@@ -65,7 +64,7 @@ void main() {
     testWidgets('Top and Bottom widget have 10% padding from the edges of the screen', (WidgetTester tester) async {
       await tester.pumpWidget(MyApp());
       final List<Stack> stackWidgets =
-      tester.widgetList<Stack>(find.byWidgetPredicate((widget) => widget is Stack)).toList();
+          tester.widgetList<Stack>(find.byWidgetPredicate((widget) => widget is Stack)).toList();
       final Stack? stackWithThreeWidgets = stackWidgets.firstWhere((stack) => stack.children.length == 3);
       expect(stackWithThreeWidgets, isNotNull);
       final Widget? topWidget = stackWithThreeWidgets!.children
